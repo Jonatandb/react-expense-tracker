@@ -7,6 +7,13 @@ export default function AppReducer(state, action) {
       }
       return newState
     }
+    case 'DELETE_TRANSACTION': {
+      const newState = {
+        ...state,
+        transactions: state.transactions.filter(t => t.id != action.payload)
+      }
+      return newState
+    }
     default:
       return state
   }
