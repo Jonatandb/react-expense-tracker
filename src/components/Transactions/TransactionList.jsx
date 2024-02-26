@@ -5,7 +5,7 @@ function TransactionList() {
   const { transactions } = useGlobalState()
   return (
     <>
-      <h3 className='text-slate-300 text-xl font-bold block w-full'>History</h3>
+      <h3 className='text-slate-300 text-xl font-bold block w-full mb-2'>History</h3>
       <ul>
         {
           transactions.map(t => (
