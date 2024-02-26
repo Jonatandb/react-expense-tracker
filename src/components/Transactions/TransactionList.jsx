@@ -1,19 +1,19 @@
 import { useGlobalState } from '../../context/GlobalState'
+import TransactionItem from './TransactionItem'
 
 function TransactionList() {
-  const { transactions, deleteTransaction } = useGlobalState()
+  const { transactions } = useGlobalState()
   return (
-    <div>
-      {
-        transactions.map(t => (
-          <div key={t.id}>
-            <p>{t.description}</p>
-            <span>{t.amount}</span>
-            <button onClick={() => deleteTransaction(t.id)}>X</button>
-          </div>
-        ))
-      }
-    </div>
+    <>
+      <h3 className='text-slate-300 text-xl font-bold block w-full'>History</h3>
+      <ul>
+        {
+          transactions.map(t => (
+            <TransactionItem key={t.id} transaction={t} />
+          ))
+        }
+      </ul>
+    </>
   )
 }
 

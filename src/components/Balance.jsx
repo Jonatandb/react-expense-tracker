@@ -8,10 +8,10 @@ function Balance() {
   const total = amounts.reduce((acc, amount) => acc + amount, 0)
 
   return (
-    <>
+    <div className='flex justify-between'>
       <h3>Your Balance:</h3>
-      <h1>${total}</h1>
-    </>
+      <h1 className='text-2xl font-bold'>${total}</h1>
+    </div>
   )
 }
 
