@@ -8,9 +8,12 @@ function TransactionList() {
       <h3 className='text-slate-300 text-xl font-bold block w-full mb-2'>History</h3>
       <ul>
         {
-          transactions.map(t => (
-            <TransactionItem key={t.id} transaction={t} />
-          ))
+          transactions && transactions.length > 0
+            ?
+            transactions.map(t => (
+              <TransactionItem key={t.id} transaction={t} />
+            ))
+            : <h4>No transactions yet</h4>
         }
       </ul>
     </>
