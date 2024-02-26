@@ -19,11 +19,11 @@ function IncomeExpenses() {
     <>
       <div className="flex justify-between my-2">
         <h4>Income</h4>
-        <p>{income}</p>
+        <p className="text-lime-600 font-bold">{income.toFixed(2)}</p>
       </div>
       <div className="flex justify-between my-2">
         <h4>Expense</h4>
-        <p>{expense}</p>
+        <p className="text-red-600 font-bold">{expense.toFixed(2)}</p>
       </div>
     </>
   )
