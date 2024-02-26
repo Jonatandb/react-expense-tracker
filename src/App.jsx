@@ -3,6 +3,7 @@ import Balance from "./components/Balance"
 import TransactionForm from "./components/Transactions/TransactionForm"
 import TransactionList from "./components/Transactions/TransactionList"
 import IncomeExpenses from "./components/IncomeExpenses"
+import ExpenseChart from "./components/ExpenseChart"
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
               <IncomeExpenses />
               <Balance />
               <TransactionForm />
-            </div>
-            <div className="w-3/6">
               <TransactionList />
+            </div>
+            <div className="flex flex-col flex-1">
+              <ExpenseChart />
             </div>
           </div>
         </div>

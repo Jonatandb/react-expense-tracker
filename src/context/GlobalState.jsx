@@ -37,11 +37,24 @@ export const GlobalProvider = ({ children }) => {
     })
   }
 
+  const totalIncome = state.transactions
+    .filter(t => t.amount > 0)
+    .reduce((acc, t) => (acc += t.amount), 0)
+
+  const totalExpenses = state.transactions
+    .filter(t => t.amount < 0)
+    .reduce((acc, t) => (acc += t.amount), 0) * -1
+
+  const totalExpensesPercentage = Math.round(totalExpenses * 100 / (totalExpenses + totalIncome)) || 0
+  const totalIncomePercentage = Math.round(totalIncome * 100 / (totalExpenses + totalIncome)) || 0
+
   return (
     <Context.Provider value={{
       transactions: state.transactions,
       addTransaction,
-      deleteTransaction
+      deleteTransaction,
+      totalIncomePercentage,
+      totalExpensesPercentage
     }}>
       {children}
     </Context.Provider>
