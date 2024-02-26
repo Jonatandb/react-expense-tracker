@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useGlobalState } from "../../context/GlobalState"
 
 function TransactionForm() {
@@ -6,6 +6,8 @@ function TransactionForm() {
 
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState(0)
+
+  const descriptionInputRef = useRef(null)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -15,6 +17,9 @@ function TransactionForm() {
       amount: +amount
     }
     addTransaction(transaction)
+    setDescription('')
+    setAmount(0)
+    descriptionInputRef.current?.focus()
   }
 
   return (
@@ -24,7 +29,10 @@ function TransactionForm() {
           placeholder="Enter a description"
           onChange={e => setDescription(e.target.value)}
           value={description}
-          className="bg-zinc-600 text-white px-3 py-2 rounded-lg block mb-2 w-full" />
+          required
+          ref={descriptionInputRef}
+          className="bg-zinc-600 text-white px-3 py-2 rounded-lg block mb-2 w-full"
+          />
 
         <input type="number"
           placeholder="0.00"
