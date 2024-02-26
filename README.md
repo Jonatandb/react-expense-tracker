@@ -1,5 +1,7 @@
 # React Expense Tracker
 
+![alt text](Screenshot.png)
+
 ## Install dependencies:
 ```pnpm install```
 
@@ -8,3 +10,4 @@
 
 ## Navigate to:
 - http://localhost:5173/
+
