@@ -12,7 +12,7 @@ function TransactionForm() {
     const transaction = {
       id: window.crypto.randomUUID(),
       description,
-      amount
+      amount: +amount
     }
     addTransaction(transaction)
   }
